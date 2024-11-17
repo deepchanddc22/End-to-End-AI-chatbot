@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { FaUserAlt, FaRobot } from 'react-icons/fa';
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -16,7 +17,7 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8000/chat/', {
+      const response = await axios.post(`${baseURL}/chat/`, {
         message: userInput,
       });
 
